@@ -7,14 +7,16 @@ MongoClient.connect('mongodb://localhost:27017/TodoApp',(err,db) => {
     return console.log("Unable to Connect to the mongodb Server");
   }
   console.log("Connected Succesully");
-
-    db.collection('Users').find({age:'20'}).count().then((count)=>{
-      console.log(`Users count: ${count}`);
-
-    },(err)=>{
-      console.log("Unable to connect to the server",err);
-    });
-
-
-  // db.close();
+  db.collection('Users').findOneAndUpdate({
+    _id:new ObjectId('5b23c504037a4021f8ab8b95')
+  },{
+$set: {
+  name:'charan'
+}},{
+returnOriginal:false
+})
+  .then((result) => {
+  console.log(result);
+  })
+    // db.close();
 });
