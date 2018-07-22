@@ -11,9 +11,7 @@ MongoClient.connect('mongodb://localhost:27017/TodoApp',(err,db) => {
 //   console.log(result);
 // })
 // db.collection('Users').deleteOne({age:'20'}).then((result) => {
-// console.log(result);
-// })
-
+//
 db.collection('Users').findOneAndDelete({age:'19'}).then((result) => {
 console.log(result[1]);
 })
